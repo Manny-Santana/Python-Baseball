@@ -27,7 +27,7 @@ for game_file in game_files:
 games = pd.concat(game_frames)
 
 # clean up data  - some entries in multi 5 column have '??' - replace with empty string
-games.loc[games.multi5 == '??'] = ''
+games.loc[games['multi5'] == '??', 'multi5'] = ''
 
 # extract identifiers
 identifiers = games['multi2'].str.extract(r'(.LS(\d{4})\d{5})')
