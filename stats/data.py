@@ -9,8 +9,8 @@ game_files = glob.glob(os.path.join(os.getcwd(), 'games', '*.EVE'))
 game_files.sort()
 
 # column headers to be passed in to pd.read_csv function
-header_list = ['type', 'multi2', 'multi3',
-               'multi4', 'multi5', 'multi6', 'event']
+# header_list = ['type', 'multi2', 'multi3',
+#                'multi4', 'multi5', 'multi6', 'event']
 
 # empty list where dataframes will be appended to
 game_frames = []
@@ -19,7 +19,8 @@ game_frames = []
 # iterate through filenames and read into dataframes, append into the game_frames list above
 for game_file in game_files:
 
-    game_frame = pd.read_csv(game_file, names=header_list)
+    game_frame = pd.read_csv(game_file, names=['type', 'multi2', 'multi3',
+                                               'multi4', 'multi5', 'multi6', 'event'])
     game_frames.append(game_frame)
 
 
